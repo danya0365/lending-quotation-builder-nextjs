@@ -24,7 +24,7 @@ export function ContactView() {
       </div>
 
       <div className="contact-back">
-        <Link href="/" className="main-btn main-btn-ghost">
+        <Link href="/" className="app-btn app-btn-ghost">
           ← กลับหน้าแรก
         </Link>
       </div>
@@ -109,7 +109,7 @@ function ContactForm() {
           <label>ข้อความ</label>
           <textarea placeholder="กรอกข้อความของคุณ..." className="form-input" rows={4} />
         </div>
-        <button type="submit" className="main-btn main-btn-primary w-full justify-center">
+        <button type="submit" className="app-btn app-btn-primary w-full justify-center">
           📨 ส่งข้อความ
         </button>
       </form>

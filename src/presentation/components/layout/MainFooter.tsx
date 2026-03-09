@@ -9,25 +9,25 @@ export function MainFooter() {
   const currentYear = dayjs().year();
 
   return (
-    <footer className="main-footer">
-      <div className="main-footer-container">
+    <footer className="app-footer">
+      <div className="app-footer-container">
         {/* Brand */}
-        <div className="main-footer-brand">
-          <span className="main-footer-logo">💰 Lending Quote</span>
-          <span className="main-footer-copyright">
+        <div className="app-footer-brand">
+          <span className="app-footer-logo">💰 Lending Quote</span>
+          <span className="app-footer-copyright">
             © {currentYear} Loan Management System
           </span>
         </div>
 
         {/* Links */}
-        <nav className="main-footer-nav">
-          <Link href="/privacy" className="main-footer-link">
+        <nav className="app-footer-nav">
+          <Link href="/privacy" className="app-footer-link">
             นโยบาย
           </Link>
-          <Link href="/terms" className="main-footer-link">
+          <Link href="/terms" className="app-footer-link">
             ข้อกำหนด
           </Link>
-          <Link href="/contact" className="main-footer-link">
+          <Link href="/contact" className="app-footer-link">
             ติดต่อ
           </Link>
         </nav>

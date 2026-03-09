@@ -36,7 +36,7 @@ export function InvoiceView() {
           <span>📝</span>
           <h2>ยังไม่มีรายการ</h2>
           <p>กรุณาเลือกประเภทธุรกิจและฟีเจอร์ใน Builder ก่อน</p>
-          <a href="/builder" className="main-btn main-btn-primary">ไปที่ Builder</a>
+          <a href="/builder" className="app-btn app-btn-primary">ไปที่ Builder</a>
         </div>
       </div>
     );
@@ -48,11 +48,11 @@ export function InvoiceView() {
     <div className="doc-page">
       {/* Action Bar */}
       <div className="doc-actions print-hidden">
-        <a href="/builder" className="main-btn main-btn-ghost">← กลับไป Builder</a>
+        <a href="/builder" className="app-btn app-btn-ghost">← กลับไป Builder</a>
         <div className="doc-actions-right">
-          <a href="/quote" className="main-btn main-btn-secondary">📋 ใบเสนอราคา</a>
-          <a href="/receipt" className="main-btn main-btn-secondary">🧾 ใบเสร็จ</a>
-          <button onClick={() => handlePrint()} className="main-btn main-btn-primary">🖨️ พิมพ์ใบแจ้งหนี้</button>
+          <a href="/quote" className="app-btn app-btn-secondary">📋 ใบเสนอราคา</a>
+          <a href="/receipt" className="app-btn app-btn-secondary">🧾 ใบเสร็จ</a>
+          <button onClick={() => handlePrint()} className="app-btn app-btn-primary">🖨️ พิมพ์ใบแจ้งหนี้</button>
         </div>
       </div>
 

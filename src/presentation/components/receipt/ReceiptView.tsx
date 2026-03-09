@@ -44,7 +44,7 @@ export function ReceiptView() {
           <span>🧾</span>
           <h2>ยังไม่มีรายการ</h2>
           <p>กรุณาเลือกประเภทธุรกิจและฟีเจอร์ใน Builder ก่อน</p>
-          <a href="/builder" className="main-btn main-btn-primary">ไปที่ Builder</a>
+          <a href="/builder" className="app-btn app-btn-primary">ไปที่ Builder</a>
         </div>
       </div>
     );
@@ -59,11 +59,11 @@ export function ReceiptView() {
     <div className="doc-page">
       {/* Action Bar */}
       <div className="doc-actions print-hidden">
-        <a href="/builder" className="main-btn main-btn-ghost">← กลับไป Builder</a>
+        <a href="/builder" className="app-btn app-btn-ghost">← กลับไป Builder</a>
         <div className="doc-actions-right">
-          <a href="/quote" className="main-btn main-btn-secondary">📋 ใบเสนอราคา</a>
-          <a href="/invoice" className="main-btn main-btn-secondary">📝 ใบแจ้งหนี้</a>
-          <button onClick={() => handlePrint()} className="main-btn main-btn-primary">🖨️ พิมพ์ใบเสร็จ</button>
+          <a href="/quote" className="app-btn app-btn-secondary">📋 ใบเสนอราคา</a>
+          <a href="/invoice" className="app-btn app-btn-secondary">📝 ใบแจ้งหนี้</a>
+          <button onClick={() => handlePrint()} className="app-btn app-btn-primary">🖨️ พิมพ์ใบเสร็จ</button>
         </div>
       </div>
 

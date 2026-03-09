@@ -26,7 +26,7 @@ export function TermsView() {
       ))}
 
       <div className="legal-back">
-        <Link href="/" className="main-btn main-btn-ghost">
+        <Link href="/" className="app-btn app-btn-ghost">
           ← กลับหน้าแรก
         </Link>
       </div>

@@ -36,7 +36,7 @@ export function QuoteView() {
           <span>📋</span>
           <h2>ยังไม่มีรายการ</h2>
           <p>กรุณาเลือกประเภทธุรกิจและฟีเจอร์ใน Builder ก่อน</p>
-          <a href="/builder" className="main-btn main-btn-primary">ไปที่ Builder</a>
+          <a href="/builder" className="app-btn app-btn-primary">ไปที่ Builder</a>
         </div>
       </div>
     );
@@ -46,11 +46,11 @@ export function QuoteView() {
     <div className="doc-page">
       {/* Action Bar */}
       <div className="doc-actions print-hidden">
-        <a href="/builder" className="main-btn main-btn-ghost">← กลับไป Builder</a>
+        <a href="/builder" className="app-btn app-btn-ghost">← กลับไป Builder</a>
         <div className="doc-actions-right">
-          <a href="/invoice" className="main-btn main-btn-secondary">📝 ใบแจ้งหนี้</a>
-          <a href="/receipt" className="main-btn main-btn-secondary">🧾 ใบเสร็จ</a>
-          <button onClick={() => handlePrint()} className="main-btn main-btn-primary">🖨️ พิมพ์ใบเสนอราคา</button>
+          <a href="/invoice" className="app-btn app-btn-secondary">📝 ใบแจ้งหนี้</a>
+          <a href="/receipt" className="app-btn app-btn-secondary">🧾 ใบเสร็จ</a>
+          <button onClick={() => handlePrint()} className="app-btn app-btn-primary">🖨️ พิมพ์ใบเสนอราคา</button>
         </div>
       </div>
 

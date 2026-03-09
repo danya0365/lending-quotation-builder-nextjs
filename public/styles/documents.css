@@ -436,8 +436,8 @@
     print-color-adjust: exact !important;
   }
 
-  .main-header,
-  .main-footer,
+  .app-header,
+  .app-footer,
   .doc-actions,
   .print-hidden {
     display: none !important;
@@ -445,8 +445,8 @@
 
   .print-show { display: block !important; }
 
-  .main-layout { height: auto; overflow: visible; }
-  .main-content { overflow: visible; }
+  .app-layout { height: auto; overflow: visible; }
+  .app-content { overflow: visible; }
 
   .doc-page { padding: 0; }
   .doc-document { box-shadow: none; border: 0; border-radius: 0; padding: 0; max-width: 100%; }

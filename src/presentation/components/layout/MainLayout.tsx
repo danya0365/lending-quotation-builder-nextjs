@@ -16,12 +16,12 @@ interface MainLayoutProps {
  */
 export function MainLayout({ children, showBubbles = true }: MainLayoutProps) {
   return (
-    <div className="main-layout">
+    <div className="app-layout">
       {/* Header */}
       <MainHeader />
 
       {/* Main Content - Scrollable */}
-      <main className="main-content relative">
+      <main className="app-content relative">
         {/* Crystal Bubble Background */}
         {showBubbles && <CrystalBubble count={10} />}
         
