@@ -1,9 +1,4 @@
 /* ============================================
-   Tailwind v4: Class-based Dark Mode
-   ============================================ */
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* ============================================
    @theme — Design Tokens (generates utility classes)
    
    These tokens generate Tailwind utility classes automatically:

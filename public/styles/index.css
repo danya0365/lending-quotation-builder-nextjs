@@ -10,10 +10,19 @@
    ============================================ */
 
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @import "./theme.css";
-@import "./base.css";
-@import "./animations.css";
-@import "./components.css";
-@import "./builder.css";
-@import './documents.css';
-@import './static-pages.css';
+
+@layer base {
+  @import "./base.css";
+}
+
+@layer components {
+  @import "./animations.css";
+  @import "./components.css";
+  @import "./builder.css";
+  @import './documents.css';
+  @import './static-pages.css';
+}
