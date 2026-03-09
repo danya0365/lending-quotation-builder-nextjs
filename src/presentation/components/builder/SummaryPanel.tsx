@@ -2,7 +2,7 @@
 
 import { VAT_CONFIG } from '@/src/config/quotation.config';
 import { formatPrice, getProjectTypeById } from '@/src/data/mock/mockFeatures';
-import { useQuotationStore } from '@/src/store/quotationStore';
+import { useQuotationStore } from '@/src/presentation/store/quotationStore';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 

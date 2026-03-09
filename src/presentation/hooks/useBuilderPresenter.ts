@@ -13,7 +13,7 @@ import {
     type Feature,
     type FeaturePackage,
 } from '@/src/data/mock/mockFeatures';
-import { useQuotationStore } from '@/src/store/quotationStore';
+import { useQuotationStore } from '@/src/presentation/store/quotationStore';
 import { useCallback, useMemo, useState } from 'react';
 
 /**
