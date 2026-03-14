@@ -77,9 +77,18 @@ export function useBuilderPresenter() {
     (id: string | null) => {
       if (id === projectType) {
         setProjectType(null);
+        selectFeatures([]);
       } else {
         setProjectType(id);
-        selectFeatures([]);
+        if (id) {
+          // Auto-select basic mandatory features (price === 0)
+          const baseFeatureIds = FEATURES.filter(
+            (f) => f.price === 0 && f.recommendedFor.includes(id)
+          ).map((f) => f.id);
+          selectFeatures(baseFeatureIds);
+        } else {
+          selectFeatures([]);
+        }
         setShowCustomize(false);
       }
     },

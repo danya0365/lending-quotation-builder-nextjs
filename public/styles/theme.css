@@ -7,6 +7,9 @@
    --color-surface     → bg-surface, text-surface
    etc.
    ============================================ */
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* ── Primary Palette (Emerald + Gold for Lending/Finance) ── */
   --color-primary: #059669;
