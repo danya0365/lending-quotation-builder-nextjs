@@ -132,7 +132,12 @@ export function HomeView() {
   return (
     <div className="min-h-screen">
       {/* ── Hero Section ── */}
-      <section className="relative py-20 sm:py-28 lg:py-36 overflow-hidden bg-grid-pattern">
+      <section 
+        className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-36 overflow-hidden bg-grid-pattern"
+        style={{
+          background: 'linear-gradient(to bottom, var(--header-bg), var(--color-background))',
+        }}
+      >
         {/* Gradient Orbs */}
         <div className="gradient-orb w-72 h-72 bg-primary/20 -top-20 -left-20" />
         <div className="gradient-orb w-96 h-96 bg-accent/15 -bottom-32 -right-20" />

@@ -1,5 +1,7 @@
 'use client';
 
+import { cn } from '../../utils/cn';
+
 /**
  * AboutView Component
  * Company and team information page for Lending Quote
@@ -8,8 +10,15 @@
 export function AboutView() {
   return (
     <div className="about-page">
-      {/* Hero Section */}
-      <section className="about-hero">
+      {/* Hero Section with Header Support */}
+      <section 
+        className={cn(
+          "about-hero relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden"
+        )}
+        style={{
+          background: 'linear-gradient(to bottom, var(--header-bg), var(--color-background))',
+        }}
+      >
         <h1 className="about-hero-title">
           เราคือ <span className="text-gradient">Lending Quote</span>
         </h1>
