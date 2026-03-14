@@ -7,115 +7,154 @@ import { cn } from '../../utils/cn';
  * Company and team information page for Lending Quote
  * Following Clean Architecture - UI only, no business logic
  */
+import { useTrail, animated, useSpring, config } from 'react-spring';
+
+/**
+ * AboutView Component
+ * Company and team information page for Lending Quote
+ * Following Clean Architecture - UI only, no business logic
+ */
 export function AboutView() {
+  const heroSpring = useSpring({
+    from: { opacity: 0, transform: 'translateY(30px)' },
+    to: { opacity: 1, transform: 'translateY(0px)' },
+    config: config.gentle,
+  });
+
+  const statsTrail = useTrail(4, {
+    from: { opacity: 0, transform: 'scale(0.9)' },
+    to: { opacity: 1, transform: 'scale(1)' },
+    delay: 300,
+    config: config.stiff,
+  });
+
+  const contentSpring = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 600,
+  });
+
   return (
     <div className="about-page">
-      {/* Hero Section with Header Support */}
-      <section 
+      {/* Hero Section - Truly Full Width */}
+      <animated.section 
         className={cn(
-          "about-hero relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden"
+          "about-hero relative pt-32 pb-20 md:pt-48 md:pb-36 overflow-hidden"
         )}
         style={{
-          background: 'linear-gradient(to bottom, var(--header-bg), var(--color-background))',
+          ...heroSpring,
+          background: 'linear-gradient(135deg, var(--color-background) 0%, var(--header-bg) 50%, var(--color-background) 100%)',
         }}
       >
-        <h1 className="about-hero-title">
-          เราคือ <span className="text-gradient">Lending Quote</span>
-        </h1>
-        <p className="about-hero-subtitle">
-          ผู้เชี่ยวชาญระบบจัดการสินเชื่อครบวงจร ด้วยประสบการณ์กว่า 10 ปี
-          ในการพัฒนาโซลูชัน Loan Management SaaS สำหรับธุรกิจทุกขนาด
-        </p>
-      </section>
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary-500 blur-[120px]" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-accent-500 blur-[120px]" />
+        </div>
 
-      {/* Stats */}
-      <section className="about-stats">
-        <div className="about-stat">
-          <span className="about-stat-value">500+</span>
-          <span className="about-stat-label">ลูกค้าที่ไว้วางใจ</span>
+        <div className="about-container relative z-10">
+          <h1 className="about-hero-title">
+            เราคือ <span className="text-gradient">Lending Quote</span>
+          </h1>
+          <p className="about-hero-subtitle">
+            ผู้เชี่ยวชาญระบบจัดการสินเชื่อครบวงจร ด้วยประสบการณ์กว่า 10 ปี
+            ในการพัฒนาโซลูชัน Loan Management SaaS สำหรับธุรกิจทุกขนาด
+          </p>
         </div>
-        <div className="about-stat">
-          <span className="about-stat-value">10+</span>
-          <span className="about-stat-label">ปีประสบการณ์</span>
-        </div>
-        <div className="about-stat">
-          <span className="about-stat-value">99.9%</span>
-          <span className="about-stat-label">Uptime</span>
-        </div>
-        <div className="about-stat">
-          <span className="about-stat-value">24/7</span>
-          <span className="about-stat-label">Support</span>
-        </div>
-      </section>
+      </animated.section>
 
-      {/* Mission & Vision */}
-      <section className="about-section">
-        <div className="about-grid">
-          <div className="about-card">
-            <span className="about-card-icon">🎯</span>
-            <h3 className="about-card-title">พันธกิจ</h3>
-            <p className="about-card-text">
-              พัฒนาระบบจัดการสินเชื่อที่ใช้งานง่าย ราคาเข้าถึงได้
-              เพื่อช่วยให้ธุรกิจปล่อยกู้ทุกขนาดสามารถบริหารสินเชื่อได้อย่างมีประสิทธิภาพ
-            </p>
-          </div>
-          <div className="about-card">
-            <span className="about-card-icon">🔭</span>
-            <h3 className="about-card-title">วิสัยทัศน์</h3>
-            <p className="about-card-text">
-              เป็นผู้นำด้านระบบจัดการสินเชื่ออันดับ 1 ของประเทศไทย
-              ด้วยเทคโนโลยี AI และ Automation ที่ล้ำสมัย
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Contained Content Sections */}
+      <div className="about-container">
+        {/* Stats */}
+        <section className="about-stats mt-[-4rem] relative z-20">
+          {statsTrail.map((style, index) => {
+            const stat = STATS_DATA[index];
+            return (
+              <animated.div key={stat.label} style={style} className="about-stat">
+                <span className="about-stat-value">{stat.value}</span>
+                <span className="about-stat-label">{stat.label}</span>
+              </animated.div>
+            );
+          })}
+        </section>
 
-      {/* Why Choose Us */}
-      <section className="about-section">
-        <h2 className="about-section-title">ทำไมต้องเลือกเรา?</h2>
-        <div className="about-features-grid">
-          {ABOUT_FEATURES.map((feature) => (
-            <div key={feature.title} className="about-feature">
-              <span className="about-feature-icon">{feature.icon}</span>
-              <h4 className="about-feature-title">{feature.title}</h4>
-              <p className="about-feature-text">{feature.text}</p>
+        <animated.div style={contentSpring}>
+          {/* Mission & Vision */}
+          <section className="about-section mt-16">
+            <div className="about-grid">
+              <div className="about-card">
+                <span className="about-card-icon">🎯</span>
+                <h3 className="about-card-title">พันธกิจ</h3>
+                <p className="about-card-text">
+                  พัฒนาระบบจัดการสินเชื่อที่ใช้งานง่าย ราคาเข้าถึงได้
+                  เพื่อช่วยให้ธุรกิจปล่อยกู้ทุกขนาดสามารถบริหารสินเชื่อได้อย่างมีประสิทธิภาพ
+                </p>
+              </div>
+              <div className="about-card">
+                <span className="about-card-icon">🔭</span>
+                <h3 className="about-card-title">วิสัยทัศน์</h3>
+                <p className="about-card-text">
+                  เป็นผู้นำด้านระบบจัดการสินเชื่ออันดับ 1 ของประเทศไทย
+                  ด้วยเทคโนโลยี AI และ Automation ที่ล้ำสมัย
+                </p>
+              </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      {/* Team */}
-      <section className="about-section">
-        <h2 className="about-section-title">ทีมงานของเรา</h2>
-        <div className="about-team-grid">
-          {TEAM_MEMBERS.map((member) => (
-            <div key={member.name + member.role} className="about-team-member">
-              <div className="about-team-avatar">{member.avatar}</div>
-              <h4 className="about-team-name">{member.name}</h4>
-              <p className="about-team-role">{member.role}</p>
+          {/* Why Choose Us */}
+          <section className="about-section">
+            <h2 className="about-section-title">ทำไมต้องเลือกเรา?</h2>
+            <div className="about-features-grid">
+              {ABOUT_FEATURES.map((feature) => (
+                <div key={feature.title} className="about-feature">
+                  <span className="about-feature-icon">{feature.icon}</span>
+                  <h4 className="about-feature-title">{feature.title}</h4>
+                  <p className="about-feature-text">{feature.text}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      {/* Contact CTA */}
-      <section className="about-cta">
-        <h2 className="about-cta-title">พร้อมเริ่มต้นแล้วหรือยัง?</h2>
-        <p className="about-cta-subtitle">
-          ติดต่อเราวันนี้ รับส่วนลดพิเศษสำหรับลูกค้าใหม่
-        </p>
-        <div className="about-cta-buttons">
-          <a href="/builder" className="about-cta-btn primary">
-            สร้างใบเสนอราคา
-          </a>
-          <a href="tel:0894847773" className="about-cta-btn secondary">
-            📞 089-484-7773
-          </a>
-        </div>
-      </section>
+          {/* Team */}
+          <section className="about-section">
+            <h2 className="about-section-title">ทีมงานของเรา</h2>
+            <div className="about-team-grid">
+              {TEAM_MEMBERS.map((member) => (
+                <div key={member.name + member.role} className="about-team-member">
+                  <div className="about-team-avatar">{member.avatar}</div>
+                  <h4 className="about-team-name">{member.name}</h4>
+                  <p className="about-team-role">{member.role}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Contact CTA */}
+          <section className="about-cta mb-12">
+            <h2 className="about-cta-title">พร้อมเริ่มต้นแล้วหรือยัง?</h2>
+            <p className="about-cta-subtitle">
+              ติดต่อเราวันนี้ รับส่วนลดพิเศษสำหรับลูกค้าใหม่
+            </p>
+            <div className="about-cta-buttons">
+              <a href="/builder" className="about-cta-btn primary">
+                สร้างใบเสนอราคา
+              </a>
+              <a href="tel:0894847773" className="about-cta-btn secondary">
+                📞 089-484-7773
+              </a>
+            </div>
+          </section>
+        </animated.div>
+      </div>
     </div>
   );
 }
+
+const STATS_DATA = [
+  { value: '500+', label: 'ลูกค้าที่ไว้วางใจ' },
+  { value: '10+', label: 'ปีประสบการณ์' },
+  { value: '99.9%', label: 'Uptime' },
+  { value: '24/7', label: 'Support' },
+];
 
 // ============================================
 // Content Data
